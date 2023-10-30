@@ -11,7 +11,7 @@ db = client["mydatabase"]
 collection = db["articles"]
 
 #read form the json file
-with open('output.json_post') as file:
+with open('output2.json') as file:
     data = json.load(file)
 
 #Insert the links into the collection

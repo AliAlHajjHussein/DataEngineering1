@@ -25,4 +25,3 @@ for url in links:
 with open('output.json', 'w') as file:
     json.dump(link_list, file, indent=4)
 
-
