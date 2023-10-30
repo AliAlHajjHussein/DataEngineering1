@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AmCharts Example</title>
+    <link rel="stylesheet" href="https://cdn.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
+    <script src="https://cdn.amcharts.com/lib/3/amcharts.js"></script>
+    <script src="https://cdn.amcharts.com/lib/3/serial.js"></script>
+    <script src="https://cdn.amcharts.com/lib/3/themes/light.js"></script>
+</head>
+<body>
+    <div id="chartdiv" style="width: 100%; height: 400px;"></div>
+
+    <script>
+        // Make AJAX request to retrieve data from Flask API
+        var request = new XMLHttpRequest();
+        request.open('GET', '/data', true);
+        request.onload = function() {
+            if (request.status >= 200 && request.status < 400) {
+                var data = JSON.parse(request.responseText);
+                // Process the data and generate the chart using AmCharts
+                // ...
+            }
+        };
+        request.send();
+    </script>
+</body>
+</html>
+<script>
+    // Make AJAX request to retrieve data from Flask API
+    var request = new XMLHttpRequest();
+    request.open('GET', '/data', true);
+    request.onload = function() {
+        if (request.status >= 200 && request.status < 400) {
+            var data = JSON.parse(request.responseText);
+
+            // Process the data as needed
+            var processedData = processData(data);
+
+            // Generate the chart using AmCharts
+            var chart = AmCharts.makeChart("chartdiv", {
+                "type": "serial",
+                "theme": "light",
+                "dataProvider": processedData,
+                // Configure the chart properties
+                // ...
+            });
+        }
+    };
+    request.send();
+
+    // Function to process the data as needed
+    function processData(data) {
+        // Process the data and return the processed data
+        // ...
+    }
+</script>
